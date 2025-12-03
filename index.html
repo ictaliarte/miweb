@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Panel</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Buscador */
+    .search-box {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        margin-bottom: 40px;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 14px;
+        font-size: 17px;
+        border: 2px solid #ccc;
+        border-radius: 8px 0 0 8px;
+        outline: none;
+    }
+
+    .search-box button {
+        padding: 14px 18px;
+        font-size: 17px;
+        border: none;
+        background: #4285f4;
+        color: white;
+        border-radius: 0 8px 8px 0;
+        cursor: pointer;
+    }
+
+    /* Grid de iconos */
+    .app-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 25px;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .app {
+        background: white;
+        padding: 20px;
+        border-radius: 18px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .app:hover {
+        transform: scale(1.08);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .app img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .app span {
+        font-size: 15px;
+        color: #444;
+    }
+</style>
+
+<script>
+function buscar() {
+    const q = document.getElementById("buscador").value;
+    if (q.trim() !== "") {
+        window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(q);
+    }
+}
+</script>
+</head>
+
+<body>
+
+<h1>Panel de inicio</h1>
+
+<!-- BUSCADOR -->
+<div class="search-box">
+    <input type="text" id="buscador" placeholder="Buscar en Google...">
+    <button onclick="buscar()">Buscar</button>
+</div>
+
+<!-- PANEL DE APPS -->
+<div class="app-grid">
+
+    <div class="app" onclick="location.href='https://drive.google.com'">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googledrive.svg" alt="">
+        <span>Drive</span>
+    </div>
+
+    <div class="app" onclick="location.href='https://www.youtube.com'">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="">
+        <span>YouTube</span>
+    </div>
+
+    <div class="app" onclick="location.href='https://www.canva.com'">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/canva.svg" alt="">
+        <span>Canva</span>
+    </div>
+
+    <div class="app" onclick="location.href='https://web.telegram.org'">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="">
+        <span>Telegram</span>
+    </div>
+
+    <div class="app" onclick="location.href='https://www.office.com/launch/excel'">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftexcel.svg" alt="">
+        <span>Excel</span>
+    </div>
+
+    <div class="app" onclick="location.href='https://mail.google.com'">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="">
+        <span>Gmail</span>
+    </div>
+
+    <div class="app" onclick="location.href='https://www.google.es/maps'">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlemaps.svg" alt="">
+        <span>Mapas</span>
+    </div>
+
+    <div class="app" onclick="location.href='https://calendar.google.com'">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlecalendar.svg" alt="">
+        <span>Calendario</span>
+    </div>
+
+</div>
+
+</body>
+</html>
