@@ -1,152 +1,155 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Panel</title>
+<title>Inicio con Botones e Iconos PNG</title>
 
 <style>
     body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f4f4f4;
+        padding: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #eef1f5;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 40px 20px;
-    }
-
-    h1 {
-        font-size: 26px;
-        color: #333;
-        margin-bottom: 20px;
     }
 
     /* Buscador */
-    .search-box {
+    #search-container {
+        margin-top: 60px;
         width: 100%;
-        max-width: 500px;
-        display: flex;
-        margin-bottom: 40px;
-    }
-
-    .search-box input {
-        width: 100%;
-        padding: 14px;
-        font-size: 17px;
-        border: 2px solid #ccc;
-        border-radius: 8px 0 0 8px;
-        outline: none;
-    }
-
-    .search-box button {
-        padding: 14px 18px;
-        font-size: 17px;
-        border: none;
-        background: #4285f4;
-        color: white;
-        border-radius: 0 8px 8px 0;
-        cursor: pointer;
-    }
-
-    /* Grid de iconos */
-    .app-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 25px;
-        width: 100%;
-        max-width: 900px;
-    }
-
-    .app {
-        background: white;
-        padding: 20px;
-        border-radius: 18px;
         text-align: center;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-        cursor: pointer;
-        transition: 0.2s;
     }
 
-    .app:hover {
-        transform: scale(1.08);
-        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    #search-box {
+        width: 60%;
+        max-width: 600px;
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
 
-    .app img {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
+    /* Botones */
+    #buttons-grid {
+        margin-top: 60px;
+        width: 85%;
+        max-width: 1150px;
+        display: grid;
+        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
-    .app span {
-        font-size: 15px;
-        color: #444;
+    .btn {
+        background: white;
+        padding: 22px;
+        border-radius: 16px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        transition: 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .btn:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+        background: #f7f9fc;
+    }
+
+    .icon-img {
+        width: 64px;
+        height: 64px;
     }
 </style>
 
 <script>
-function buscar() {
-    const q = document.getElementById("buscador").value;
-    if (q.trim() !== "") {
-        window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(q);
+function buscar(e) {
+    if (e.key === "Enter") {
+        const q = document.getElementById("search-box").value;
+        window.open("https://www.google.com/search?q=" + encodeURIComponent(q), "_blank");
     }
 }
 </script>
-</head>
 
+</head>
 <body>
 
-<h1>Panel de inicio</h1>
-
-<!-- BUSCADOR -->
-<div class="search-box">
-    <input type="text" id="buscador" placeholder="Buscar en Google...">
-    <button onclick="buscar()">Buscar</button>
+<div id="search-container">
+    <input id="search-box" type="text" placeholder="Buscar..." onkeydown="buscar(event)">
 </div>
 
-<!-- PANEL DE APPS -->
-<div class="app-grid">
+<div id="buttons-grid">
 
-    <div class="app" onclick="location.href='https://drive.google.com'">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googledrive.svg" alt="">
-        <span>Drive</span>
-    </div>
+    <a class="btn" href="https://google.com" target="_blank">
+        <img class="icon-img" src="icons/google.png">
+        Google
+    </a>
 
-    <div class="app" onclick="location.href='https://www.youtube.com'">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="">
-        <span>YouTube</span>
-    </div>
+    <a class="btn" href="https://drive.google.com" target="_blank">
+        <img class="icon-img" src="icons/drive.png">
+        Drive
+    </a>
 
-    <div class="app" onclick="location.href='https://www.canva.com'">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/canva.svg" alt="">
-        <span>Canva</span>
-    </div>
+    <a class="btn" href="https://mail.google.com" target="_blank">
+        <img class="icon-img" src="icons/gmail.png">
+        Gmail
+    </a>
 
-    <div class="app" onclick="location.href='https://web.telegram.org'">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="">
-        <span>Telegram</span>
-    </div>
+    <a class="btn" href="https://calendar.google.com" target="_blank">
+        <img class="icon-img" src="icons/calendar.png">
+        Calendario
+    </a>
 
-    <div class="app" onclick="location.href='https://www.office.com/launch/excel'">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftexcel.svg" alt="">
-        <span>Excel</span>
-    </div>
+    <a class="btn" href="https://keep.google.com" target="_blank">
+        <img class="icon-img" src="icons/keep.png">
+        Notas
+    </a>
 
-    <div class="app" onclick="location.href='https://mail.google.com'">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="">
-        <span>Gmail</span>
-    </div>
+    <a class="btn" href="https://chat.openai.com" target="_blank">
+        <img class="icon-img" src="icons/chatgpt.png">
+        ChatGPT
+    </a>
 
-    <div class="app" onclick="location.href='https://www.google.es/maps'">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlemaps.svg" alt="">
-        <span>Mapas</span>
-    </div>
+    <a class="btn" href="#">
+        <img class="icon-img" src="icons/documentos.png">
+        Documentos
+    </a>
 
-    <div class="app" onclick="location.href='https://calendar.google.com'">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlecalendar.svg" alt="">
-        <span>Calendario</span>
-    </div>
+    <a class="btn" href="#">
+        <img class="icon-img" src="icons/favoritos.png">
+        Favoritos
+    </a>
+
+    <a class="btn" href="https://youtube.com" target="_blank">
+        <img class="icon-img" src="icons/youtube.png">
+        YouTube
+    </a>
+
+    <a class="btn" href="https://canva.com" target="_blank">
+        <img class="icon-img" src="icons/canva.png">
+        Canva
+    </a>
+
+    <a class="btn" href="https://office.com" target="_blank">
+        <img class="icon-img" src="icons/excel.png">
+        Excel
+    </a>
+
+    <a class="btn" href="https://web.telegram.org" target="_blank">
+        <img class="icon-img" src="icons/telegram.png">
+        Telegram
+    </a>
 
 </div>
 
